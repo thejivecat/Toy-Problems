@@ -19,7 +19,7 @@ var evenOccurrence = function(arr) {
   }
   for (var key in evens) {
     if (evens[key]%2===0) {
-      return key;
+      return Number(key);
     }
   }
 };
