@@ -20,7 +20,7 @@
   var Stack = function() {
     this.storage = {};
     this.stackSize = 0;
-    this.minii = Infinity;
+    this.mini = Infinity;
     this.prevMin;
   // add an item to the top of the stack
 
