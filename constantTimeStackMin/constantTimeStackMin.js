@@ -20,7 +20,7 @@
   var Stack = function() {
     this.storage = {};
     this.stackSize = 0;
-    this.min = Infinity;
+    this.minii = Infinity;
     this.prevMin;
   // add an item to the top of the stack
 
@@ -28,9 +28,9 @@
     Stack.prototype.push = function(value) {
       this.storage[this.stackSize] = value;
       this.stackSize++;
-      if (value < this.min) {
-        this.prevMin = this.min;
-        this.min = value;
+      if (value < this.mini) {
+        this.prevMin = this.mini;
+        this.mini = value;
       }
       return this.storage;
     };
@@ -38,8 +38,8 @@
   // remove an item from the top of the stack
     Stack.prototype.pop = function() {
       let removed = this.storage[this.stackSize-1];
-      if (removed === this.min) {
-        this.min = this.prevMin;
+      if (removed === this.mini) {
+        this.mini = this.prevMin;
       }
       if (this.stackSize > 0) {
         delete this.storage[this.stackSize-1];
@@ -53,7 +53,7 @@
       return this.stackSize;
     };
 
-  // return the minimum value in the stack
+  // return the miniimum value in the stack
     Stack.prototype.min = function() {
-      return this.min;
+      return this.mini;
     };
