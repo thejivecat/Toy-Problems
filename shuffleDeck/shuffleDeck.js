@@ -31,13 +31,25 @@
  *   See https://www.dartmouth.edu/~chance/teaching_aids/books_articles/Mann.pdf .
  */
 
-var shuffleDeck = function(deck) {
+var shuffleDeck1 = function(deck) {
   let copy = deck.slice();
   let results = [];
   for (let i = 0; i < deck.length; i++) {
     let randomIndex = Math.floor(Math.random() * copy.length);
     results.push(copy[randomIndex]);
     copy.splice(randomIndex, 1);
+  }
+  return results;
+};
+
+var shuffleDeck = function(deck) {
+  let copy = deck.slice();
+  let results = [];
+  for (let i = 0; i < deck.length; i++) {
+    let randomIndex = Math.floor(Math.random() * copy.length);
+    results.push(copy[randomIndex]);
+    copy[randomIndex] = copy[copy.length-1];
+    copy.splice(-1, 1);
   }
   return results;
 };
