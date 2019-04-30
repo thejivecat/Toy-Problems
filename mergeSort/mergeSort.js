@@ -103,16 +103,23 @@ var mergeSort = function(array) {
   //base case will be if array.length < 2
   //concat array halves together comparing values
 
-  if (array.length < 2) {
+  if (array.length <= 1) {
     return array;
   }
-  var left = mergeSort(array.slice(0, Math.floor(array.length/2)));
-  var right = mergeSort(array.slice(Math.floor(array.length/2)));
-  var result = [];
-  if (left[0] > right[0]) {
-    result.push(right, left);
-  } else {
-    result.push(left, right);
-  }
-  return result;
+  var half = Math.floor(array.length / 2);
+  var left = mergeSort(array.slice(0, half));
+  var right = mergeSort(array.slice(half));
+
+  return merge(left, right);
+
 };
+
+var merge = function(left, right) {
+  let i = 0, j = 0, result = [];
+
+  if (left[i] <= right[j]) {
+    result.push(left[i++]);
+  } else {
+    result.push(right[j++]);
+  }
+}
