@@ -14,7 +14,7 @@
 
 var allAnagrams = function(string) {
   if (string.length < 2) {
-    return string;
+    return [string];
   } else {
     var results = [];
     for (let i = 0; i < string.length; i++) {
