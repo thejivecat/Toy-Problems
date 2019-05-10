@@ -13,6 +13,10 @@
   */
 var deepEquals = function(apple, orange) {
   let equals = false;
+  if (Object.keys(apple).length === 0 && Object.keys(orange).length === 0) {
+    equals = true;
+    return equals;
+  }
   const recurse = function(apple, orange) {
     for (let key1 in apple) {
       for (let key2 in orange) {
@@ -39,6 +43,11 @@ var deepEquals = function(apple, orange) {
   recurse(apple,orange);
   return equals;
 };
-
+let foo = {};
+let bar = {};
 console.log(deepEquals({a:1, b: {c:3}},{a:1, b: {c:3}})); // true
 console.log(deepEquals({a:1, b: {c:5}},{a:1, b: {c:6}})); // false
+
+console.log(deepEquals(foo, bar));
+
+
