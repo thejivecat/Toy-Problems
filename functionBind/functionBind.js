@@ -25,7 +25,12 @@ function bind():
 
 var bind = function(context) {
   // TODO: Your code here
-
+  var boundTargetFunc = this;
+  var boundArgs = Array.prototype.slice.call(arguments, 1);
+  return function boundFunc() {
+    var targetArgs = Array.prototype.slice.call(arguments);
+    return boundTargetFunc.apply(context, boundArgs.concat(targetArgs));
+  }
 };
 
 /*
