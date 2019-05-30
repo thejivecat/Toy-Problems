@@ -48,7 +48,7 @@ var Range = function(start, end, step) {
 };
 
 Range.prototype.size = function () {
-  return Math.round((this.end - this.start + 1) / this.step);
+  return this.end ? Math.round((this.end - this.start + 1) / this.step): 1;
 };
 
 Range.prototype.each = function (callback) {
