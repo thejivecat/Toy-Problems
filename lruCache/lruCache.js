@@ -34,16 +34,14 @@ var LRUCache = function (limit) {
   this.size = 0;
   this.limit = limit;
   this.storage = {};
-  this.head = null;
-  this.tail = null;
+  this.cache = new List()
 
 };
 
 var LRUCacheItem = function (val, key) {
   this.key = key;
   this.value = val;
-  this.next = null;
-  this.prev = null;
+  this.node = new ListNode();
 };
 
 LRUCache.prototype.size = function () {
@@ -51,9 +49,20 @@ LRUCache.prototype.size = function () {
 };
 
 LRUCache.prototype.get = function (key) {
+  if (this.storage[key]) {          //check if key exists
+    return this.storage[key];       //if it does, update the head with key val,
+                                    //return val
+  }
 };
 
 LRUCache.prototype.set = function (key, val) {
+  //check size is not greater than limit
+    //if there is no current head, update it with the key val
+      //else initiliaze a new LRUCacheItem with the key, val pair
+      //update the this.node.head and this.node.head.prev with new item
+  //update storage 
+    //set key=this.node.head
+    //increment size
 };
 
 
