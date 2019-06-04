@@ -35,13 +35,16 @@ var translateRomanNumeral = function(romanNumeral) {
 
   for (let i = 0; i < romanNumeral.length; i++) {
     const romanLetter = romanNumeral[i];
+    if (romanNumeral.length === 1) {
+      return DIGIT_VALUES[romanNumeral[0]];
+    }
     if (DIGIT_VALUES[romanNumeral[i]] < DIGIT_VALUES[romanNumeral[i + 1]]) {
       result += DIGIT_VALUES[romanNumeral[i+1]] - DIGIT_VALUES[romanNumeral[i]];
     } 
-    if (DIGIT_VALUES[romanNumeral[i]] > DIGIT_VALUES[romanNumeral[i + 1]]){
-      result += DIGIT_VALUES[romanLetter];
+    if (DIGIT_VALUES[romanNumeral[i]] >= DIGIT_VALUES[romanNumeral[i + 1]] && romanNumeral[i+1] !== undefined){
+      result += DIGIT_VALUES[romanNumeral[i]] + DIGIT_VALUES[romanNumeral[i + 1]];
     }
   }
   return result;
 };
-console.log(translateRomanNumeral("MCD"));
+console.log(translateRomanNumeral("VII"));
