@@ -35,7 +35,7 @@ function sudokuChecker(board) {
     for (let i = 0; i < row.length; i++) {
       let newRow = new Set(row[i]);
       if (newRow.size === row.length) {
-        answer = 'valid'
+        answer = 'solved'
       } 
     }
   }
@@ -60,7 +60,7 @@ function sudokuChecker(board) {
   for (let i = 0; i < subgrids.length; i++) {
     let newGrid = new Set(subgrids[i]);
     if (newGrid.size === subgrids[i].length) {
-      answer = 'valid';
+      answer = 'solved';
     } else {
       answer = 'invalid';
       return false;
