@@ -81,6 +81,23 @@ var formatHundreds = function(num) {
     return numbersToWords[hundredsDigit] + ' hundred';
   }
 }
+
+var formatThousands = function(num) {
+  return 'one thousand';
+}
+var formatMillions = function(num) {
+  return 'one million';
+}
+var formatBillions = function(num) {
+  return 'one billion';
+}
+var formatTrillions = function(num) {
+  return 'one trillion';
+}
+var formatQuadrillions = function(num) {
+  return 'one quadrillion';
+}
+
 Number.prototype.toEnglish = function () {
   let result = '';
   if (this <= 20) {
