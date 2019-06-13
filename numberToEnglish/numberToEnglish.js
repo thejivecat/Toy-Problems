@@ -77,6 +77,8 @@ var formatHundreds = function(num) {
     return numbersToWords[hundredsDigit] + ' hundred ' + numbersToWords[onesDigit];
   } else if (onesDigit === 0 && tensDigit !== 0) {
     return numbersToWords[hundredsDigit] + ' hundred ' + numbersToWords[tensDigit];
+  } else if (onesDigit !== 0 && tensDigit !== 0) {
+    return numbersToWords[hundredsDigit] + ' hundred ' + numbersToWords[tensDigit] + '-' + numbersToWords[onesDigit];
   } else {
     return numbersToWords[hundredsDigit] + ' hundred';
   }
@@ -122,4 +124,4 @@ Number.prototype.toEnglish = function () {
   return result;
 };
 
-console.log((101).toEnglish());
+console.log((175).toEnglish());
