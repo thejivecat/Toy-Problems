@@ -40,7 +40,7 @@ var rotatedArraySearch = function (rotated, target) {
       }
     }
   }
-  return -1;
+  return null;
 };
 
 console.log(rotatedArraySearch([2,3,4,5,6,0,1], 6));
