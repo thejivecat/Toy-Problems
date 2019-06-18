@@ -25,16 +25,17 @@ var spiralTraversal = function(matrix) {
       for (let i = 0; i < matrix.length; i++) { //push all last values
         let row = matrix[i];
         results.push(row[row.length-1]);
-        row.pop();
+        row.pop(); //remove all last values
       }
-      console.log(matrix[matrix.length-1], "BLEEP");
-      for (let i = matrix[matrix.length-1].length-1; i >= 0; i--) { //push last row
-        results.push(matrix[matrix.length-1][i]);
-      }
-      matrix.pop(); //remove last row
-      for (let i = matrix.length-1; i >=0; i--) {
-        results.push(matrix[i][0]);
-        matrix[i].shift();
+      while (matrix.length > 0) {
+        for (let i = matrix[matrix.length-1].length-1; i >= 0; i--) { //push last row
+          results.push(matrix[matrix.length-1][i]);
+        }
+        matrix.pop(); //remove last row
+        for (let i = matrix.length-1; i >=0; i--) { //push all first values of remaining rows 
+          results.push(matrix[i][0]);
+          matrix[i].shift();
+        }
       }
     }
   return results;
