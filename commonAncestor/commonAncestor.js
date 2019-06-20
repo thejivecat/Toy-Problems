@@ -39,7 +39,7 @@ Tree.prototype.addChild = function(child) {
   *  4.) between me and a potato -> null
   */
 Tree.prototype.getClosestCommonAncestor = function(node1, node2) {
-  const ancestor = this;
+  let ancestor = this;
   if (this.isDescendant(node1) && this.isDescendant(node2)) {
     for (let i = 0; i < this.children.length; i++) {
       if (this.children[i].isDescendant(node1) && this.children[i].isDescendant(node2)) {
@@ -126,4 +126,4 @@ var me = new Tree();
 mom.addChild(me);
 var baby = new Tree();
 me.addChild(baby);
-console.log(grandma.getAncestorPath(baby));
+console.log(grandma.getClosestCommonAncestor(baby, me));
