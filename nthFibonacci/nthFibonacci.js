@@ -21,6 +21,9 @@
  */
 
 var nthFibonacci = function (n) {
+  if (n === 0) {
+    return 1;
+  }
   let prev = [0, 1];
   let nth = 0;
   let i = 0;
@@ -31,7 +34,3 @@ var nthFibonacci = function (n) {
   }  
   return nth;
 };
-
-
-
-console.log(nthFibonacci(7));
